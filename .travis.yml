@@ -1,0 +1,17 @@
+env:
+  matrix:
+    - FEDORA='f30'
+    - FEDORA='f31'
+
+
+install:
+ - docker build -f "Dockerfile.$FEDORA" -t "test-$FEDORA" .
+
+
+script:
+ - docker run -it --rm -v $PWD:/src "test-$FEDORA" make -C '/src/asf/sam0/applications/led_toggle/samd21_xplained_pro/gcc'
+
+
+services:
+ - docker
+
