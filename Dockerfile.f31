@@ -1,0 +1,8 @@
+FROM	fedora:31
+
+RUN	dnf install -y --nogpgcheck		\
+		arm-none-eabi-gcc-cs		\
+		arm-none-eabi-gcc-cs-c++	\
+		arm-none-eabi-newlib		\
+		make
+
