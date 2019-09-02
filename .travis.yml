@@ -1,7 +1,9 @@
 env:
   matrix:
+    - FEDORA='f29'
     - FEDORA='f30'
     - FEDORA='f31'
+    - FEDORA='f32'
 
 
 install:
