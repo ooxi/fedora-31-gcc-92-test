@@ -1,27 +1,31 @@
 env:
   matrix:
-    - FEDORA='f26'	TESTING=''
-    - FEDORA='f26'	TESTING='-testing'
-    - FEDORA='f27'	TESTING=''
-    - FEDORA='f27'	TESTING='-testing'
-    - FEDORA='f28'	TESTING=''
-    - FEDORA='f28'	TESTING='-testing'
-    - FEDORA='f29'	TESTING=''
-    - FEDORA='f29'	TESTING='-testing'
-    - FEDORA='f30'	TESTING=''
-    - FEDORA='f30'	TESTING='-testing'
-    - FEDORA='f31'	TESTING=''
-    - FEDORA='f31'	TESTING='-testing'
-    - FEDORA='f32'	TESTING=''
-    - FEDORA='f32'	TESTING='-testing'
+    - FEDORA='f26'
+    - FEDORA='f26-testing'
+    - FEDORA='f27'
+    - FEDORA='f27-testing'
+    - FEDORA='f28'
+    - FEDORA='f28-testing'
+    - FEDORA='f29'
+    - FEDORA='f29-testing'
+    - FEDORA='f29-koji'
+    - FEDORA='f30'
+    - FEDORA='f30-testing'
+    - FEDORA='f30-koji'
+    - FEDORA='f31'
+    - FEDORA='f31-testing'
+    - FEDORA='f31-koji'
+    - FEDORA='f32'
+    - FEDORA='f32-testing'
+    - FEDORA='f32-koji'
 
 
 install:
- - docker build -f "Dockerfile.$FEDORA$TESTING" -t "test-$FEDORA$TESTING" .
+ - docker build -f "Dockerfile.$FEDORA" -t "test-$FEDORA" .
 
 
 script:
- - docker run -it --rm -v $PWD:/src "test-$FEDORA$TESTING" make -C '/src/asf/sam0/applications/led_toggle/samd21_xplained_pro/gcc'
+ - docker run -it --rm -v $PWD:/src "test-$FEDORA" make -C '/src/asf/sam0/applications/led_toggle/samd21_xplained_pro/gcc'
 
 
 services:

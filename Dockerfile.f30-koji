@@ -1,0 +1,11 @@
+FROM	fedora:30
+
+# Testing arm-none-eabi-newlib from Koji
+RUN	curl --output '/tmp/arm-none-eabi-newlib-3.1.0-3.fc30.noarch.rpm' 'https://kojipkgs.fedoraproject.org//packages/arm-none-eabi-newlib/3.1.0/3.fc30/noarch/arm-none-eabi-newlib-3.1.0-3.fc30.noarch.rpm'
+RUN	rpm --install '/tmp/arm-none-eabi-newlib-3.1.0-3.fc30.noarch.rpm'
+
+RUN	dnf install -y				\
+		arm-none-eabi-gcc-cs		\
+		arm-none-eabi-gcc-cs-c++	\
+		make
+
