@@ -1,5 +1,8 @@
 env:
   matrix:
+    - FEDORA='f26'
+    - FEDORA='f27'
+    - FEDORA='f28'
     - FEDORA='f29'
     - FEDORA='f30'
     - FEDORA='f31'
